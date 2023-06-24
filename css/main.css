@@ -1230,7 +1230,15 @@ h3.aside-title {
   font-family: FontAwesome;
   content: "\f09b";
   margin: 10px;
-  color: #000;
+  color: #000000;
+  font-size: 18px;
+}
+
+.facebook-link::after {
+  font-family: FontAwesome;
+  content: "\f082";
+  margin: 10px;
+  color: #000000;
   font-size: 18px;
 }
 
