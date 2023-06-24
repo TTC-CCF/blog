@@ -1173,10 +1173,15 @@ h3.aside-title {
 
 .about-me-image {
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
   padding-top: 62.5%;
+  height: 62.5%;
+  width: 62.5%;
   background-image: url('/about_me.jpg');
   background-size: contain;
   background-repeat: no-repeat;
+  border-radius: 50%;
 }
 
 .about-me-text {
