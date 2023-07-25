@@ -1,0 +1,144 @@
+<!DOCTYPE html><html lang="zh-CN"><head><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-M2CJ9BSB95"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments)};
+gtag('js', new Date());
+gtag('config',"G-M2CJ9BSB95");</script><meta charset="utf-8"><title>TTC's blog</title><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link href="/css/bootstrap.min.css" rel="stylesheet"><link href="/css/font-awesome.min.css" rel="stylesheet"><link href="/css/main.css" rel="stylesheet"><meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body><div class="wrap"><nav class="page-navigation"><div class="nav-container"><div class="page-header-logo"><h1 class="prince-log"><a class="home-link" href="/">TTC</a></h1></div><button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".main-nav-items"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><ul class="collapse navbar-collapse main-nav-items"><li class="menu-item"><a href="/archives/" target="_self">ARCHIVE</a></li><li class="menu-item"><a href="/about/" target="_self">ABOUT</a></li></ul></div></nav><main class="prince-container"><div class="post"><article class="post-block"><h1 class="post-title">Line Messaging Api 用python寫出第一個聊天機器人</h1><div class="post-info">7月 26日 2023</div><div class="post-entry"><h1 id="什麼是Line-Messaging-Api？"><a href="#什麼是Line-Messaging-Api？" class="headerlink" title="什麼是Line Messaging Api？"></a>什麼是Line Messaging Api？</h1><p>越來越多商家使用Line來當作他們的官方帳號，使用大家都在用的Line來行銷，可以是推播最近的優惠，或是得到客戶的資料。有了Line Messaging Api，大家都可以建造屬於自己的聊天機器人，裡面提供超多功能可以玩，而且完全免費！<br>支援的功能有：  </p>
+<ol>
+<li>自訂回復訊息邏輯</li>
+<li>加入圖文表單</li>
+<li>自行劃分選單區域</li>
+<li>自訂模板訊息</li>
+<li>快速回覆訊息<br>這裡只是列出一些常用功能，其實它能做的事還有更多，其他的功能請參考官方文檔</li>
+</ol>
+<h1 id="如何開始？"><a href="#如何開始？" class="headerlink" title="如何開始？"></a>如何開始？</h1><h2 id="註冊-Line-Developer"><a href="#註冊-Line-Developer" class="headerlink" title="註冊 Line Developer"></a>註冊 Line Developer</h2><p>第一步要先註冊一個Line Developer的帳號(<a target="_blank" rel="noopener" href="https://developers.line.biz/zh-hant/">註冊網址</a>)<br>註冊完畢之後來到控制台這邊新增一個Provider<br><img src="/images/line_dev_provider.png"><br>點擊Create之後就會有三種給你選<br><img src="/images/line_dev_messaging_api.png"><br>選Create a Messaging API Channel<br>接下來就會要你填入一些資料，就照字面上的意思填入，應該沒什麼問題<br>這樣就有你這個基本的官方帳號了，接下來就到程式碼的部分了</p>
+<h2 id="Python-line-bot-sdk"><a href="#Python-line-bot-sdk" class="headerlink" title="Python line-bot-sdk"></a>Python line-bot-sdk</h2><p>現在我們先新增一個資料夾叫做test，然後cd到這個資料夾，安裝一下line-bot-sdk還有flask</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install line-bot-sdk</span><br><span class="line">pip install flask</span><br></pre></td></tr></table></figure>
+<p>ps：請先確認你python的版本是否<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.312ex;" xmlns="http://www.w3.org/2000/svg" width="5.28ex" height="1.819ex" role="img" focusable="false" viewBox="0 -666 2333.8 804"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mo"><path data-c="2265" d="M83 616Q83 624 89 630T99 636Q107 636 253 568T543 431T687 361Q694 356 694 346T687 331Q685 329 395 192L107 56H101Q83 58 83 76Q83 77 83 79Q82 86 98 95Q117 105 248 167Q326 204 378 228L626 346L360 472Q291 505 200 548Q112 589 98 597T83 616ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path></g><g data-mml-node="mn" transform="translate(1055.8,0)"><path data-c="33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path data-c="2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z" transform="translate(500,0)"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(778,0)"></path></g></g></g></svg></mjx-container><br>創建一個叫做webhook.py的檔案<br>然後在裡面打上這些程式碼<br><strong>webhook.py</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, abort, request</span><br><span class="line"><span class="keyword">from</span> linebot <span class="keyword">import</span> LineBotApi, WebhookHandler</span><br><span class="line"><span class="keyword">from</span> linebot.exceptions <span class="keyword">import</span> InvalidSignatureError</span><br><span class="line"><span class="keyword">from</span> linebot.models <span class="keyword">import</span> *</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">LINE_CHANNEL_ACCESS_TOKEN = <span class="string">'填入你的'</span></span><br><span class="line">LINE_CHANNEL_SECRET = <span class="string">'填入你的'</span></span><br><span class="line"></span><br><span class="line">line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)</span><br><span class="line">handler = WebhookHandler(LINE_CHANNEL_SECRET)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">"/"</span>, methods=[<span class="string">'POST'</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">callback</span>():</span><br><span class="line">    signature = request.headers[<span class="string">'X-Line-Signature'</span>]</span><br><span class="line">    body = request.get_data(as_text=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        handler.handle(body, signature)</span><br><span class="line">    <span class="keyword">except</span> InvalidSignatureError <span class="keyword">as</span> err:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'可能是你Line access token或channel secret設錯了喔'</span>)</span><br><span class="line">        abort(<span class="number">400</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>, <span class="number">200</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@handler.add(<span class="params">MessageEvent, message=TextMessage</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">handle_message</span>(<span class="params">event</span>):</span><br><span class="line">    reply_token = event.reply_token</span><br><span class="line">    text = event.message.text</span><br><span class="line">    user_id = event.source.user_id</span><br><span class="line">    message = TextSendMessage(<span class="string">f'<span class="subst">{user_id}</span>說：\n<span class="subst">{text}</span>'</span>)</span><br><span class="line">    line_bot_api.reply_message(reply_token, message)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run(port=<span class="number">80</span>)</span><br></pre></td></tr></table></figure>
+<p>要看懂這段程式碼需要知道flask是怎麼request以及怎麼handle的，想要知道的話網路上flask的教學文章應該都有。<br>首先，程式碼上半部是在讓line知道你是哪一個channel的，所以在使用API之前要先附上你的access token和channel secret，這兩個都可以在你剛剛創的Messaging Api Channel裡面找到。<br><code>line_bot_api</code>：<br>呼叫API的物件<br><code>handler</code>：<br>負責監聽從使用者傳過來的各種訊息，也會負責分配路由<br><code>handle_message(event)</code>：<br>如果使用者傳給此官方帳號的是屬於文字訊息(MessageEvent)的時候會觸發的函式，<code>event</code>裡面有關於使用者傳過來的訊息的詳細資料，得到文字訊息的話要用<code>event.message.text</code>拿到  </p>
+<p>其實分路由的寫法蠻好寫的，也比較容易看懂每個區塊在做什麼事，之後要擴增路由的話也比較方便！我覺得Line官方在設計這些API的時候很有同情心，讓開發者們可以寫出乾淨的程式碼，實在是揪甘心阿！</p>
+<h2 id="用ngrok開出一個webhook"><a href="#用ngrok開出一個webhook" class="headerlink" title="用ngrok開出一個webhook"></a>用ngrok開出一個webhook</h2><p>webhook簡單的說就是一個網址，大家可以對這個網址使用HTTP methods來得到後面的資料，現在要做的事就是把我們剛剛的程式碼用ngrok掛載到大家都可以呼叫的連結。</p>
+<h3 id="下載ngrok"><a href="#下載ngrok" class="headerlink" title="下載ngrok"></a>下載ngrok</h3><p>先附上  </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ngrok.com/">ngrok官網</a> </li>
+<li><a target="_blank" rel="noopener" href="https://ngrok.com/download">ngrok下載點</a></li>
+</ul>
+<p>先在官網辦一個帳號，辦完之後要去這裡記下你的Authtoken<br><img src="/images/ngrok_authtoken.png"></p>
+<p>再去下載ngrok，下載完會是一個壓縮檔，點開裡面的ngrok.exe<br>然後執行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ngrok config add-authtoken <span class="string">'你的authtoken'</span></span><br><span class="line">ngrok http 80</span><br></pre></td></tr></table></figure>
+<p>執行結果<br><img src="/images/ngrok_result.png"></p>
+<p>重點來了，要複製這段網址<br><img src="/images/ngrok_result_focus.png"></p>
+<p>複製到你Messaging API Channel的這裡<br><img src="/images/line_dev_webhook.png"><br>然後點一下Auto-reply messages旁邊的Edit會跳到這個頁面，像我這樣設定<br><img src="/images/line_edit.png"><br>這時候執行webhook.py，它就會在localhost:80上面監聽了，透過ngrok的代理，我們就可以讓line執行我們的邏輯了，掃一下QRcode就可以跟帳號互動了，結果如下圖<br><img src="/images/line_message.png"></p>
+<h1 id="後續"><a href="#後續" class="headerlink" title="後續"></a>後續</h1><p>其實linebot還有提供其他訊息傳遞方式，今天只是小試身手一下，之後再寫更多文章來介紹。補充一下，我會用python來教學是因為網路上好像是JavaScript的教學比較多，然後官方文件對python的文檔也有些需要修正的地方，之後講更多，今天先醬。</p>
+</div><div class="post-tags-box"><a class="tag-link" href="/tags/Line-bot/" rel="tag">Line bot</a></div></article></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AFLine-Messaging-Api%EF%BC%9F"><span class="toc-text">什麼是Line Messaging Api？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%96%8B%E5%A7%8B%EF%BC%9F"><span class="toc-text">如何開始？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%BB%E5%86%8A-Line-Developer"><span class="toc-text">註冊 Line Developer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-line-bot-sdk"><span class="toc-text">Python line-bot-sdk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8ngrok%E9%96%8B%E5%87%BA%E4%B8%80%E5%80%8Bwebhook"><span class="toc-text">用ngrok開出一個webhook</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BC%89ngrok"><span class="toc-text">下載ngrok</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%8C%E7%BA%8C"><span class="toc-text">後續</span></a></li></ol><div class="post-nav"><div class="next-wrap col-md-6 col-xs-6 col-md-offset-6 col-xs-offset-6"><a class="next-post" href="/2023/07/23/2023%E8%BE%A6%E8%AD%B7%E7%85%A7%E7%86%B1%E6%BD%AE/">2023辦護照熱潮</a><i class="fa fa-angle-double-right"></i></div></div></main></div><footer><div class="copyright"><p>Crafted with <i class="fa fa-heart"></i> by&nbsp;TTC&nbsp;|&nbsp;<a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yiliashaw/hexo-theme-prince" target="_blank">Prince</a> by SHAW</p></div></footer><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script><script src="/js/script.js"></script></body></html>
