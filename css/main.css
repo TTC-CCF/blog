@@ -198,7 +198,6 @@ a img {
 } */
 
 body {
-  font-family: 'PingFangSC-Regular', monospace, 'Microsoft YaHei';
   color: #333;
   font-size: 14px;
   background-color: #f2f2f2;
@@ -248,7 +247,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'PingFangSC-Regular', 'Microsoft YaHei';
+  font-family: 'PingFangSC-Regular';
 }
 
 p {
@@ -432,7 +431,7 @@ h1.prince-log {
   height: 60px;
   margin-right: 20px;
   line-height: 60px;
-  font-family: 'ArialRoundedMTBold', 'PingFang-Medium', 'Microsoft YaHei';
+  font-family: 'ArialRoundedMTBold', 'PingFang-Medium';
   letter-spacing: 1px;
   font-weight: 700;
   font-size: 16px;
@@ -464,7 +463,7 @@ h1.prince-log a {
     position: relative;
   }
   .main-nav-items li a {
-    font-family: 'ArialRoundedMTBold', 'PingFangSC-Regular', 'Microsoft YaHei';
+    font-family: 'ArialRoundedMTBold', 'PingFangSC-Regular';
     font-size: 12px;
     font-weight: 400;
     letter-spacing: 1px;
@@ -491,7 +490,7 @@ h1.prince-log a {
   .main-nav-items li a {
     display: block;
     text-align: right;
-    font-family: 'PingFangSC-Regular', 'Microsoft YaHei';
+    font-family: 'PingFangSC-Regular';
     font-size: 16px;
     font-weight: 400;
     letter-spacing: 1px;
@@ -515,6 +514,10 @@ h1.prince-log a {
 
 /*  6. POST LAYOUT
 /*-----------------------------------------------------------------------------------*/
+
+.image-container {
+  text-align: center;
+}
 
 .articles {
   width: 92%;
@@ -589,7 +592,7 @@ h1.prince-log a {
 }
 
 .post-title {
-  font-family: "PingFangSC-SemiBold", 'Microsoft YaHei', Arial, sans-serif;
+  font-family: "PingFangSC-SemiBold", Arial, sans-serif;
   margin-bottom: 25px;
   margin-top: 20px;
   text-align: center;
@@ -601,7 +604,7 @@ h1.prince-log a {
 }
 
 .post-title a {
-  font-family: "PingFangSC-Medium", 'Microsoft YaHei', Arial, sans-serif;
+  font-family: "PingFangSC-Medium", Arial, sans-serif;
   color: #000;
 }
 
@@ -611,11 +614,11 @@ h1.prince-log a {
 
 .post-info {
   font-size: 12px;
-  color: #797979;
+  color: #ececec;
   /* text-transform: uppercase; */
   text-align: center;
   letter-spacing: .6px;
-  font-family: 'PingFangSC-Regular', sans-serif, 'Microsoft YaHei';
+  font-family: 'PingFangSC-Regular', sans-serif;
   font-weight: 500;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -688,7 +691,7 @@ h1.prince-log a {
 .post-entry h6,
 .post-entry hr {
   margin-bottom: 10px;
-  font-family: "PingFangSC-SemiBold", 'Microsoft YaHei', Arial, sans-serif;
+  font-family: "PingFangSC-SemiBold", Arial, sans-serif;
 }
 
 .post-entry h1,
@@ -1007,7 +1010,7 @@ ol.toc-child {
 }
 
 a.article-more {
-  font-family: ArialRoundedMTBold, "PingFangSC-Regular", 'Microsoft YaHei';
+  font-family: ArialRoundedMTBold, "PingFangSC-Regular";
   font-size: 12px;
   line-height: 35px;
   letter-spacing: 1px;
@@ -1137,7 +1140,7 @@ aside.sidebar {
 }
 
 .post-item a .post-title {
-  font-family: "PingFangSC-Regular", 'Microsoft YaHei', STHeiti, Arial, sans-serif;
+  font-family: "PingFangSC-SemiBold", Arial, sans-serif;
   text-align: left;
   margin: 0px;
   font-weight: 400;
@@ -1154,7 +1157,7 @@ aside.sidebar {
     margin: 8px 0;
   }
   .post-item a .post-title {
-    font-family: "PingFangSC-Medium", Helvetica Neue, Helvetica, 'Microsoft YaHei', STHeiti, Arial, sans-serif;
+    font-family: "PingFangSC-Medium", Helvetica Neue, Helvetica, Arial, sans-serif;
     height: 18px;
     line-height: 18px;
     padding-left: 0px;
@@ -1239,7 +1242,6 @@ h3.aside-title {
 }
 
 .about-me-text {
-  font-family: "PingFangSC-Regular", monospace, 'Microsoft YaHei', STHeiti;
   padding: 15px 0 0;
   font-size: 14px;
   line-height: 22px;
@@ -1252,7 +1254,7 @@ h3.aside-title {
 }
 
 .all-tags-box a {
-  font-family: 'PingFangSC-Regular', sans-serif, 'Microsoft YaHei', STHeiti;
+  font-family: "PingFangSC-SemiBold", Arial, sans-serif;
   font-size: 12px !important;
   letter-spacing: 1px;
   /* text-transform: uppercase; */
@@ -1338,7 +1340,7 @@ h3.aside-title {
 .paginator a,
 .post-nav a {
   color: #656565;
-  font-family: 'PingFangSC-Regular', sans-serif, 'Microsoft YaHei', STHeiti;
+  font-family: 'PingFangSC-Regular', sans-serif;
   /* text-transform: uppercase; */
   font-size: 14px;
   font-weight: 500;
@@ -1404,7 +1406,7 @@ h3.aside-title {
   padding: 35px 0;
   background: #f2f2f2;
   overflow: hidden;
-  font-family: 'PingFangSC-Regular', sans-serif, 'Microsoft YaHei', STHeiti;
+  font-family: 'PingFangSC-Regular', sans-serif;
   clear: both;
   text-align: center;
 }
@@ -1412,7 +1414,7 @@ h3.aside-title {
 .copyright p {
   font-size: 12px;
   color: #6b6b6b;
-  font-family: "PingFangSC-Regular", monospace, 'Microsoft YaHei', STHeiti;
+  font-family: "PingFangSC-Regular", monospace;
 }
 
 .copyright p a {
