@@ -1232,19 +1232,21 @@ h3.aside-title {
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 62.5%;
-  height: 62.5%;
-  width: 62.5%;
-  background-image: url('/about_me.jpg');
-  background-size: contain;
+  padding-top: 40%;
+  width: 40%;
+  background-image: url('/about_me.webp');
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   border-radius: 50%;
 }
 
 .about-me-text {
+  margin-top: 20px;
+  margin-inline: auto;
+  width: 50%;
   padding: 15px 0 0;
-  font-size: 14px;
-  line-height: 22px;
+  font-size: 18px;
   margin-bottom: 0;
   text-align: center;
 }
@@ -1276,6 +1278,7 @@ h3.aside-title {
 .follow-icons {
   text-align: center;
   padding-top: 10px;
+  font-size: 24px;
 }
 
 .follow-icons>a:hover {
@@ -1287,7 +1290,6 @@ h3.aside-title {
   content: "\f09b";
   margin: 10px;
   color: #000000;
-  font-size: 18px;
 }
 
 .linkedin-link::after {
@@ -1295,7 +1297,6 @@ h3.aside-title {
   content: "\f08c";
   margin: 10px;
   color: #000000;
-  font-size: 18px;
 }
 
 .facebook-link::after {
