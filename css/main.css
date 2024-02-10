@@ -534,6 +534,60 @@ h1.prince-log a {
   display: block;
 }
 
+.card {
+  display: block;
+  position: relative;
+  width: 92%; /* Adjust as needed */
+  height: 200px; /* Adjust as needed */
+  overflow: hidden;
+  border-radius: 10px;
+  text-align: center;
+  margin: auto;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  box-sizing: border-box;
+  transition: all 0.3s;
+}
+
+.card:hover .card-content {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.card-title {
+  color: white;
+  width: 70%;
+  white-space: wrap;
+  margin: auto;
+  opacity: 1;
+}
+
+.card-excerpt {
+  color: white;
+  margin: 5px 0 0;
+  font-size: 14px;
+}
+
 .post-title {
   font-family: "PingFangSC-SemiBold", 'Microsoft YaHei', Arial, sans-serif;
   margin-bottom: 25px;
@@ -634,7 +688,7 @@ h1.prince-log a {
 .post-entry h6,
 .post-entry hr {
   margin-bottom: 10px;
-  font-family: 'PingFangSC-Regular', monospace, 'Microsoft YaHei', STHeiti;
+  font-family: "PingFangSC-SemiBold", 'Microsoft YaHei', Arial, sans-serif;
 }
 
 .post-entry h1,
@@ -1229,6 +1283,14 @@ h3.aside-title {
 .github-link::after {
   font-family: FontAwesome;
   content: "\f09b";
+  margin: 10px;
+  color: #000000;
+  font-size: 18px;
+}
+
+.linkedin-link::after {
+  font-family: FontAwesome;
+  content: "\f08c";
   margin: 10px;
   color: #000000;
   font-size: 18px;
