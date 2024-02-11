@@ -140,10 +140,12 @@ a img {
   font-family: 'SourceCodePro-Medium';
   src: url('../fonts/SourceCodePro/SourceCodePro-Medium.ttf') format('truetype')
 }
+
 @font-face {
   font-family: 'SourceCodePro-Bold';
   src: url('../fonts/SourceCodePro/SourceCodePro-Bold.ttf') format('truetype')
 }
+
 @font-face {
   font-family: 'SourceCodePro-SemiBold';
   src: url('../fonts/SourceCodePro/SourceCodePro-SemiBold.ttf') format('truetype')
@@ -153,18 +155,22 @@ a img {
   font-family: 'FiraMono';
   src: url('../fonts/Fira_Mono/FiraMono-Regular.ttf')
 }
+
 @font-face {
   font-family: 'FiraMono-Medium';
   src: url('../fonts/Fira_Mono/FiraMono-Medium.ttf')
 }
+
 @font-face {
   font-family: 'FiraMono-Bold';
   src: url('../fonts/Fira_Mono/FiraMono-Bold.ttf')
 }
+
 @font-face {
   font-family: 'RobotoCondensed';
   src: url('../fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf')
 }
+
 @font-face {
   font-family: 'RobotoCondensed-Bold';
   src: url('../fonts/Roboto_Condensed/RobotoCondensed-Bold.ttf')
@@ -399,7 +405,7 @@ pre .javascript .function {
 
 .page-navigation {
   width: 100%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   left: 0;
   top: 0;
 }
@@ -457,11 +463,13 @@ h1.prince-log a {
     margin-right: 15px;
     display: none;
   }
+
   .main-nav-items li {
     display: inline-block;
     margin-right: 20px;
     position: relative;
   }
+
   .main-nav-items li a {
     font-family: 'ArialRoundedMTBold', 'PingFangSC-Regular';
     font-size: 12px;
@@ -487,6 +495,7 @@ h1.prince-log a {
     z-index: 1000;
     top: 60px;
   }
+
   .main-nav-items li a {
     display: block;
     text-align: right;
@@ -540,8 +549,10 @@ h1.prince-log a {
 .card {
   display: block;
   position: relative;
-  width: 92%; /* Adjust as needed */
-  height: 200px; /* Adjust as needed */
+  width: 92%;
+  /* Adjust as needed */
+  height: 200px;
+  /* Adjust as needed */
   overflow: hidden;
   border-radius: 10px;
   text-align: center;
@@ -640,8 +651,7 @@ h1.prince-log a {
 }
 
 .post-entry a,
-.toc a
- {
+.toc a {
   padding: 0 2px;
   border-bottom: 1px solid #333;
   -webkit-transition: all 0.2s linear;
@@ -652,8 +662,7 @@ h1.prince-log a {
 }
 
 .post-entry a:hover,
-.toc a:hover
-{
+.toc a:hover {
   background-color: #444;
   border: none;
   color: #fff;
@@ -696,8 +705,7 @@ h1.prince-log a {
 
 .post-entry h1,
 .post-entry h2,
-.post-entry h3
-{
+.post-entry h3 {
   margin-top: 20px;
 }
 
@@ -804,11 +812,11 @@ blockquote {
 
 .post-entry dl,
 .post-entry ul,
-.post-entry ol
-{
+.post-entry ol {
   padding-left: 25px;
   margin-bottom: 2px;
 }
+
 ol.toc,
 ol.toc-child {
   padding-left: 10px;
@@ -820,8 +828,7 @@ ol.toc-child {
 }
 
 .post-entry ol li,
-.toc li
-{
+.toc li {
   margin-bottom: 8px;
   list-style: square;
 }
@@ -1080,6 +1087,7 @@ a.article-more:hover {
 main {
   position: relative;
 }
+
 main .toc {
   position: fixed;
   right: 0px;
@@ -1153,15 +1161,18 @@ aside.sidebar {
     display: block;
     clear: both;
   }
+
   .post-item {
     margin: 8px 0;
   }
+
   .post-item a .post-title {
     font-family: "PingFangSC-Medium", Helvetica Neue, Helvetica, Arial, sans-serif;
     height: 18px;
     line-height: 18px;
     padding-left: 0px;
   }
+
   .post-item a .post-date {
     text-align: right;
     height: 18px;
@@ -1249,6 +1260,31 @@ h3.aside-title {
   font-size: 18px;
   margin-bottom: 0;
   text-align: center;
+}
+
+@media (orientation: portrait) and (max-device-width: 430px) {
+  .about-me-image {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 60%;
+    width: 60%;
+    background-image: url('/about_me.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+  }
+
+  .about-me-text {
+    margin-top: 20px;
+    margin-inline: auto;
+    width: 85%;
+    padding: 15px 0 0;
+    font-size: 16px;
+    margin-bottom: 0;
+    text-align: center;
+  }
 }
 
 .all-tags-box {
