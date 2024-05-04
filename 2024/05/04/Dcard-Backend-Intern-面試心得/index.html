@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="zh-cht"><head><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-M2CJ9BSB95"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments)};
+gtag('js', new Date());
+gtag('config',"G-M2CJ9BSB95");</script><meta charset="utf-8"><title>TTC's blog</title><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link href="/css/bootstrap.min.css" rel="stylesheet"><link href="/css/font-awesome.min.css" rel="stylesheet"><link href="/css/main.css" rel="stylesheet"><meta name="generator" content="Hexo 6.3.0"></head><body><div class="wrap"><nav class="page-navigation"><div class="nav-container"><div class="page-header-logo"><h1 class="prince-log"><a class="home-link" href="/">TTC🍳</a></h1></div><button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".main-nav-items"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><ul class="collapse navbar-collapse main-nav-items"><li class="menu-item"><a href="/archives/" target="_self">ARCHIVE</a></li><li class="menu-item"><a href="/about/" target="_self">ABOUT</a></li></ul></div></nav><main class="prince-container"><div class="post"><article class="post-block"><h1 class="post-title">Dcard Backend Intern 面試心得</h1><div class="image-container"><div class="post-gallery"><p><img src="/images/dcard-landing.webp"></p></div></div><div class="post-info">May 4th 2024</div><div class="post-entry"><p>鼎鼎大名的Dcard在今年開了前端和後端的intern，都非常有競爭力。</p>
+<p>我這次面試的是後端，這篇文章只會分享後端面試前的作業還有一面會問的內容，因為我一面完就被刷掉了🥲</p>
+<h2 id="作業-廣告投放API"><a href="#作業-廣告投放API" class="headerlink" title="作業 - 廣告投放API"></a>作業 - 廣告投放API</h2><p>這次的作業要用Go實作兩個API，一個是新增廣告，一個是查詢廣告。查詢廣告這支API要能夠達到10000QPS，然後還有條件篩選的功能。</p>
+<p>我一開始用了酷酷的Encore框架來試試看微服務的感覺，有聽說Dcard是由很多個微服務組成的，所以想說用這個框架應該會有加分。</p>
+<p>但是因為Encore有內建許多的middleware，我也不太知道要怎麼把它關掉，後來就換用Gin實作這個作業。</p>
+<p>這個作業我覺得最難的地方是要達到10000QPS。首先要對系統設計有一些了解，知道怎麼實作才可以比較高效能。</p>
+<p>我在這方面沒有很在行，但是用k6測出來的時候一開始的設計就有超過10000QPS了，所以我就沒有再做更多的優化。</p>
+<p>這也導致我在面試的時候被問倒了。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/TTC-CCF/Dcard-Backend-Assignment">作業Github</a></p>
+<h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><p>從Dcard表定的報名截止時間到收面試通知信大概過了3天左右，他們時間都會公布在Dcard Lab的IG，排的還蠻緊湊的。</p>
+<p>剛進Dcard公司的時候他會先帶你看一下Dcard這間公司的歷史，然後導覽工作環境，大概15分鐘左右，有舒緩緊張的效果，這是我覺得Dcard和別人不一樣的地方。</p>
+<h3 id="HR關"><a href="#HR關" class="headerlink" title="HR關"></a>HR關</h3><p>HR關的時候會先自我介紹，然後問你應徵動機、遇過甚麼困難、怎麼解決、跟其他人合作的經驗，等等比較基本的問題。</p>
+<p>他們也會跟你介紹Dcard的運作方式，還有實習生的流程等。</p>
+<p>只要放輕鬆回答就好，HR們都很親切。</p>
+<p>這關大概花了30分鐘。</p>
+<h3 id="技術關"><a href="#技術關" class="headerlink" title="技術關"></a>技術關</h3><p>技術關是由Backend team的兩個工程師來面試。</p>
+<p>他們會先針對你的履歷的專案問你怎麼做的，簡單回答就好。</p>
+<p>再來就是一連串的後端技術轟炸，他們問的題目都會從你用過的技術出發，然後再一步一步深入。</p>
+<p>像是我有用過Nginx，他們會問我怎麼用、他還可以怎麼使用、有沒有用過他們的load balance等等。</p>
+<p>大家都會問的問題可能是下面這些</p>
+<ol>
+<li><p>ACID是什麼，I的不同級別有哪些</p>
+</li>
+<li><p>Go的goroutine怎麼用、和thread的差別</p>
+</li>
+<li><p>Go buffered&#x2F;unbuffered channel差別</p>
+</li>
+<li><p>水平擴展資料分片問題，怎麼分片、怎麼合併 (我直接倒地)</p>
+</li>
+<li><p>說明SQL index</p>
+</li>
+</ol>
+<p>其他的應該都是看你的回答再問下去。</p>
+<p>再來還有問作業實作的細節，還有問你是怎麼設計整個服務的。</p>
+<p>我有在Database和快取之間加了一層<a target="_blank" rel="noopener" href="https://pkg.go.dev/golang.org/x/sync/singleflight">singleflight</a>防止快取穿透，但是沒有很了解他的原理，面試官問我的時候就答不太出來。</p>
+<p>因為用的是Postgres資料庫，他們竟然問我Postgres的View要怎麼用，這東西我上次用是資料庫概論的作業，也不知道用這個有什麼好處，直接倒地。</p>
+<p>最後也有考一題SQL白板題，跟join table和group by有關。也會問你跟left join還有inner join的差別。</p>
+<p>這關花了整整一小時。</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>我覺得Dcard的面試技術關真的問的很細，要有很多基礎知識才可以應付的來。</p>
+<p>我這次就是因為基礎不夠扎實，很多問題都答不出來，真的很可惜。</p>
+<p>不過我覺得Dcard的面試流程很好，HR關可以讓你放鬆，技術關可以讓你知道自己的不足，也可以學到很多東西。</p>
+<p>收到感謝信大概是二面開始後的第3天，信裡面還有給你一些做得好的地方和可以進步的地方。</p>
+<p>只能說各種地方都能感受到Dcara的用心。下次有機會還是會再試試看的!</p>
+</div><div class="post-tags-box"><a class="tag-link" href="/tags/%E9%9D%A2%E8%A9%A6/" rel="tag">面試</a></div></article></div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E6%A5%AD-%E5%BB%A3%E5%91%8A%E6%8A%95%E6%94%BEAPI"><span class="toc-text">作業 - 廣告投放API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E9%9D%A2"><span class="toc-text">一面</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HR%E9%97%9C"><span class="toc-text">HR關</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%80%E8%A1%93%E9%97%9C"><span class="toc-text">技術關</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"><span class="toc-text">結語</span></a></li></ol><div class="post-nav"><div class="next-wrap col-md-6 col-xs-6 col-md-offset-6 col-xs-offset-6"><a class="next-post" href="/2024/02/22/AppWorks-School-Campus-Program-Batch-4-%E5%9F%B9%E8%A8%93%E7%B6%93%E9%A9%97%E5%88%86%E4%BA%AB/">AppWorks School Campus Program Batch 4 培訓經驗分享</a><i class="fa fa-angle-double-right"></i></div></div></main></div><footer><div class="copyright"><p>Crafted with <i class="fa fa-heart"></i> by&nbsp;TTC🍳&nbsp;|&nbsp;<a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yiliashaw/hexo-theme-prince" target="_blank">Prince</a> by SHAW</p></div></footer><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script><script src="/js/script.js"></script></body></html>
