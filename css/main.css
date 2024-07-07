@@ -257,7 +257,7 @@ h6 {
 }
 
 p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.8em;
 }
 
@@ -472,7 +472,7 @@ h1.prince-log a {
 
   .main-nav-items li a {
     font-family: 'ArialRoundedMTBold', 'PingFangSC-Regular';
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 400;
     letter-spacing: 1px;
     color: #808080;
@@ -916,7 +916,7 @@ ol.toc-child {
 
 .post-entry pre {
   padding: 0;
-  font-size: 13px;
+  font-size: 16px;
   background: #f7f7f7;
   line-height: 1.6;
   padding-top: 10px;
