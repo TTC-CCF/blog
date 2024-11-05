@@ -75,7 +75,7 @@ h1 {
 }
 
 h2 {
-  font-size: 26px;
+  font-size: 28px;
 }
 
 h3 {
@@ -205,7 +205,7 @@ a img {
 
 body {
   color: #333;
-  font-size: 14px;
+  font-size: 16px;
   background-color: #f2f2f2;
   /* padding-top: 60px; */
 }
@@ -299,7 +299,7 @@ kbd,
 pre,
 samp {
   font-family: Monaco, Menlo, consolas, monospace;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 code {
@@ -309,7 +309,7 @@ code {
   color: rgb(140, 26, 17);
   background: #f7f7f7;
   border-radius: 3px;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 pre code {
@@ -624,7 +624,7 @@ h1.prince-log a {
 }
 
 .post-info {
-  font-size: 12px;
+  font-size: 13px;
   color: #525252;
   /* text-transform: uppercase; */
   text-align: center;
@@ -720,16 +720,16 @@ h1.prince-log a {
 }
 
 .post-entry h1 {
-  font-size: 20px;
+  font-size: 26px;
 }
 
 .post-entry h2 {
-  font-size: 18px;
+  font-size: 24px;
   line-height: 22px;
 }
 
 .post-entry h3 {
-  font-size: 14px;
+  font-size: 20px;
   line-height: 16px;
 }
 
@@ -766,7 +766,7 @@ blockquote {
   color: #999;
   padding: 0 18px;
   font-family: 'PingFangSC-Regular', "Georgia";
-  font-size: 12px;
+  font-size: 18px;
   line-height: 28px;
   margin: 0px;
   font-style: italic;
@@ -1456,4 +1456,15 @@ h3.aside-title {
 
 .copyright p a {
   color: #000;
+}
+
+details {
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
